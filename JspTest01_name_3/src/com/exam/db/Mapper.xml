@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.examDB">
+	
+	<resultMap type="com.exam.dto.ExamDto" id="ExamDtoMap">
+		<result column="SEQ" property="seq"/>
+		<result column="NAME" property="name"/>
+		<result column="SCORE" property="score"/>
+	</resultMap>
+
+	<insert id="insert" parameterType="ExamDto">
+		insert into JSPEXAM values(EXAMSEQ.NEXTVAL,#{name},#{score})
+	</insert>
+	<select id="selectAll" resultMap="ExamDtoMap">
+		SELECT SEQ, NAME, SCORE FROM JSPEXAM
+	</select>
+
+
+</mapper>
+
+
+
+
